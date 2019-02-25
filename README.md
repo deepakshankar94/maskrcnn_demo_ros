@@ -1,46 +1,46 @@
 # maskrcnn-demo
 
 
-## Install Anaconda 
+## Install pipenv 
 
-- Get the Anaconda install file using 
 
 ```bash
-wget https://repo.anaconda.com/archive/Anaconda3-2018.12-Linux-x86_64.sh
-
-chmod +x Anaconda3-2018.12-Linux-x86_64.sh
-
-./Anaconda3-2018.12-Linux-x86_64.sh
+pip install pipenv
 ```
 
-- Follow the instructions from the installer
-
-
-## Create a conda environment
-
-- Create the conda environment where the libraries will be setup
+- to make it create environment in the project folder export the following variable (can be added to .bashrc for ease)
+```bash
+export PIPENV_VENV_IN_PROJECT=1 
+```
+## Clone this repo 
 
 ```bash
-conda create -n maskrcnn_demo python=3
+git clone git@github.com:deepakshankar94/maskrcnn_demo_ros.git
+cd maskrcnn_demo_ros
+```
+## Create a virtual environment
 
-source activate maskrcnn_demo
+- Create the pipenv environment
+
+```bash
+pipenv install
 ```
 
 ## compile the pytorch library from source 
 
 (This step might break on the ryzen because of mkl-dnn library )
 
+- activate the virtual env
+
+```
+pipenv shell
+```
+
+
 - Setup the environment variable required for compiling pytorch without CUDA
 
 ```bash
 export NO_CUDA=1
-```
-
-- Install Dependencies
-
-
-```
-conda install numpy pyyaml mkl mkl-include setuptools cmake cffi typing
 ```
 
 
@@ -61,11 +61,7 @@ cd ..
 ## install project dependencies
 
 ```bash
-# this installs the right pip and dependencies for the fresh python
-conda install ipython
 
-# maskrcnn_benchmark and coco api dependencies
-pip install ninja yacs cython matplotlib
 
 
 #install this only if you don't compile from source
@@ -92,8 +88,6 @@ cd maskrcnn-benchmark
 
 python setup.py build develop
 
-#install the correct version of opencv
-pip install opencv-python==4.0.0.21
 
 unset INSTALL_DIR
 
@@ -103,9 +97,16 @@ cd ..
 ## run the demo
 
 ```bash
-chmod +x run.sh
+#source the ros environment
+source /opt/ros/kinetic/setup.sh
 
-./run.sh
+catkin_build
+
+#source your package
+source devel/setup.bash
+
+#run the demo
+roslaunch maskrcnnpkg demo.launch
 
 #if the tensor error is present check the camera source in the demo
 ```
@@ -114,5 +115,4 @@ chmod +x run.sh
 ### TODO
 
 - [X] setup demo with read me
-- [ ] Integrate the ROS code 
-	("Need to fix the correct version of python not being used with conda. Try exploring virtualenv with catkin workspace")
+- [x] Integrate the ROS code 

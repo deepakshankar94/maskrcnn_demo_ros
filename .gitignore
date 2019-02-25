@@ -2,3 +2,6 @@
 build
 devel
 src/beginner_tutorials
+pytorch
+maskrcnn-benchmark
+vision
