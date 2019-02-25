@@ -1,0 +1,12 @@
+<launch>
+
+  <group ns="demo">
+    <node pkg="maskrcnnpkg" name="talker" output="screen" type="talker.py"/>
+    <node pkg="maskrcnnpkg" name="maskrcnn_editor" type="maskrcnn_editor.py"/>
+    <node pkg="maskrcnnpkg" name="listener" type="listener.py"/>
+  </group>
+
+
+
+
+</launch>

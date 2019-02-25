@@ -1,0 +1,1 @@
+python webcam.py --min-image-size 250 MODEL.DEVICE cpu

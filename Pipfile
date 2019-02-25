@@ -1,0 +1,20 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+ninja = "*"
+yacs = "*"
+cython = "*"
+matplotlib = "*"
+numpy = "*"
+torch = {file = "https://download.pytorch.org/whl/cpu/torch-1.0.0-cp27-cp27mu-linux_x86_64.whl"}
+opencv-python = "==4.0.0.21"
+rospkg = "*"
+scikit-image = "*"
+
+[requires]
+python_version = "2.7"
