@@ -23,7 +23,7 @@ cd maskrcnn_demo_ros
 - Create the pipenv environment
 
 ```bash
-pipenv install --skip-env
+pipenv install --skip-lock
 ```
 
 ## compile the pytorch library from source 
