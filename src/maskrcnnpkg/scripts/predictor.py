@@ -177,7 +177,8 @@ class COCODemo(object):
             return self.create_mask_montage(result, top_predictions)
         result = self.overlay_boxes(result, top_predictions)
         if self.cfg.MODEL.MASK_ON:
-            result = self.overlay_mask(result, top_predictions)
+            #result = self.overlay_mask(result, top_predictions)
+            return top_predictions
         result = self.overlay_class_names(result, top_predictions)
 
         return result

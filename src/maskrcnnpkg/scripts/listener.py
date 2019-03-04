@@ -76,7 +76,7 @@ def image_callback(msg):
     img = CvBridge().imgmsg_to_cv2(msg, desired_encoding="passthrough")
     rospy.loginfo("recieved")
     cv2.imshow("listener", img)
-    cv2.waitKey(5000)
+    cv2.waitKey(1000)
     cv2.destroyAllWindows()
 
 
