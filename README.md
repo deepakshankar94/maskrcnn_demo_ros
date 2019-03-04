@@ -15,7 +15,7 @@ export PIPENV_VENV_IN_PROJECT=1
 ## Clone this repo 
 
 ```bash
-git clone git@github.com:deepakshankar94/maskrcnn_demo_ros.git
+git clone https://github.com/deepakshankar94/maskrcnn_demo_ros
 cd maskrcnn_demo_ros
 ```
 ## Create a virtual environment
@@ -23,7 +23,7 @@ cd maskrcnn_demo_ros
 - Create the pipenv environment
 
 ```bash
-pipenv install
+pipenv install --skip-lock
 ```
 
 ## compile the pytorch library from source 
@@ -53,7 +53,7 @@ cd pytorch
 - Install PyTorch
 
 ```bash
-export CMAKE_PREFIX_PATH=${CONDA_PREFIX:-"$(dirname $(which conda))/../"}
+#export CMAKE_PREFIX_PATH=${CONDA_PREFIX:-"$(dirname $(which conda))/../"}
 python setup.py install
 cd ..
 ```
@@ -100,7 +100,7 @@ cd ..
 #source the ros environment
 source /opt/ros/kinetic/setup.sh
 
-catkin_build
+catkin_make
 
 #source your package
 source devel/setup.bash
